@@ -25,9 +25,10 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
 
 @Composable
-fun Menu() {
+fun Menu(navController: NavController) {
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -60,7 +61,7 @@ fun Menu() {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             CustomButton(text = "IŠČEM ASISTENCO") {
-                // Logika za klik na "IŠČEM ASISTENCO"
+                navController.navigate("iscemAsistenco")
             }
 
             CustomButton(text = "NUDIM ASISTENCO") {
