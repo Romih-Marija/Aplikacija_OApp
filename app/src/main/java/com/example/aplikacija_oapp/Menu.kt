@@ -26,6 +26,9 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
+import com.example.aplikacija_oapp.components.Footer
+import com.example.aplikacija_oapp.components.MenuAppHeader
+import com.example.aplikacija_oapp.components.MenuCustomButton
 
 @Composable
 fun Menu(navController: NavController) {
@@ -38,72 +41,36 @@ fun Menu(navController: NavController) {
 
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
-        Image(
-            painter = painterResource(id = R.drawable.logo),
-            contentDescription = "Logo",
-            modifier = Modifier
-                .size(130.dp)
-                .padding(bottom = 15.dp, top = 35.dp)
-        )
-        Text(
-            modifier = Modifier.padding(bottom = 25.dp),
-            text = "OSEBNA ASISTENCA",
-            fontSize = 23.sp,
-            fontWeight = FontWeight(500)
-        )
 
+        MenuAppHeader(title = "OSEBNA ASISTENCA")
         Column(
             modifier = Modifier
 
-                .background(Color(0xFFBBDEFB)) // Svetlo modra barva
+                .background(Color(0xFFBBDEFB))
                 .padding(top = 20.dp)
-                .fillMaxSize(),
-            horizontalAlignment = Alignment.CenterHorizontally
+                .fillMaxSize()
+                .weight(1f),
+        horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            CustomButton(text = "IŠČEM ASISTENCO") {
+            MenuCustomButton(text = "IŠČEM ASISTENCO") {
                 navController.navigate("iscemAsistenco")
             }
 
-            CustomButton(text = "NUDIM ASISTENCO") {
+            MenuCustomButton(text = "NUDIM ASISTENCO") {
                 // Logika za klik na "NUDIM ASISTENCO"
             }
 
-            CustomButton(text = "IŠČEM NADOMEŠČANJE") {
+            MenuCustomButton(text = "IŠČEM NADOMEŠČANJE") {
                 // Logika za klik na "IŠČEM NADOMEŠČANJE"
             }
 
-            CustomButton(text = "NUDIM NADOMEŠČANJE") {
+            MenuCustomButton(text = "NUDIM NADOMEŠČANJE") {
                 // Logika za klik na "NUDIM NADOMEŠČANJE"
             }
 
 
             Spacer(modifier = Modifier.weight(1f))
-
-            Text(
-                text = "OApp - Osebna asistenca - 2024",
-                modifier = Modifier.padding(bottom = 20.dp, top = 35.dp)
-            )
+            Footer()
         }
-    }
-}
-@Composable
-fun CustomButton(text: String, onClick: () -> Unit) {
-    Button(
-        onClick = onClick,
-        colors = ButtonDefaults.buttonColors(
-            containerColor = Color.White,
-            contentColor = Color.Black
-        ),
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(120.dp)
-            .padding(10.dp)
-            .padding(horizontal = 30.dp)
-            .border(2.dp, Color.Gray, shape = RoundedCornerShape(50.dp))
-    ) {
-        Text(
-            text = text,
-            fontSize = 21.sp
-        )
     }
 }
