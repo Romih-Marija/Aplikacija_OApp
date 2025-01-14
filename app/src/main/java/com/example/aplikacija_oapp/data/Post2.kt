@@ -1,6 +1,6 @@
 package com.example.aplikacija_oapp.data
 
-data class Post(
+data class Post2(
     val id: Int,
     val name: String,
     val surname: String,

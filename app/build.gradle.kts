@@ -47,7 +47,11 @@ android {
 }
 
 dependencies {
-
+    implementation ("androidx.room:room-runtime:2.5.0")
+    annotationProcessor ("androidx.room:room-compiler:2.5.0")
+    implementation ("androidx.room:room-ktx:2.5.0")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-ktx:2.5.0")
+    implementation ("androidx.lifecycle:lifecycle-livedata-ktx:2.5.0")
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.8.7")
     implementation("androidx.activity:activity-compose:1.9.3")
@@ -65,4 +69,5 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     val nav_version = "2.8.4"
     implementation("androidx.navigation:navigation-compose:$nav_version")
+    implementation("io.coil-kt:coil-compose:2.4.0")
 }
