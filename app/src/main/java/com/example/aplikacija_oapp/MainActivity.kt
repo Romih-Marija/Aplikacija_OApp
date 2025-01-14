@@ -3,9 +3,6 @@ package com.example.aplikacija_oapp
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
@@ -13,18 +10,17 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.example.aplikacija_oapp.ui.theme.Aplikacija_OAppTheme
+import com.example.aplikacija_oapp.ui.screens.IscemAsistenco
+import com.example.aplikacija_oapp.ui.screens.IscemNadomescanje
+import com.example.aplikacija_oapp.ui.screens.Menu
+import com.example.aplikacija_oapp.ui.screens.NudimAsistenco
+import com.example.aplikacija_oapp.ui.screens.NudimNadomescanje
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            Aplikacija_OAppTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    AppNavigation()
-                }
-            }
+            AppNavigation()
         }
     }
 }
@@ -34,6 +30,10 @@ fun AppNavigation() {
     NavHost(navController = navController, startDestination = "menu") {
         composable("menu") { Menu(navController) }
         composable("iscemAsistenco") { IscemAsistenco() }
+        composable("nudimAsistenco") { NudimAsistenco() }
+        composable("iscemNadomescanje") { IscemNadomescanje() }
+        composable("nudimNadomescanje") { NudimNadomescanje() }
+
     }
 }
 
@@ -49,7 +49,6 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
-    Aplikacija_OAppTheme {
         Greeting("Android")
-    }
+
 }
