@@ -1,6 +1,8 @@
 package com.example.aplikacija_oapp
 
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.material3.Text
@@ -17,12 +19,44 @@ import com.example.aplikacija_oapp.ui.screens.NudimAsistenco
 import com.example.aplikacija_oapp.ui.screens.NudimNadomescanje
 
 class MainActivity : ComponentActivity() {
+    private val tag = "MainActivity"
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContent {
             AppNavigation()
         }
+    }
+    override fun onStart() {
+        super.onStart()
+        Log.d(tag, "onStart called")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        Log.d(tag, "onResume called: Activity is now visible.")
+        Toast.makeText(this, "Dobrodošli nazaj!", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        Log.d(tag, "onPause called")
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.d(tag, "onStop called")
+        Toast.makeText(this, "Nasvidenje!", Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        Log.d(tag, "onRestart called")
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        Log.d(tag, "onDestroy called")
     }
 }
 @Composable
